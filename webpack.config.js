@@ -8,9 +8,9 @@ module.exports = {
 			app: "./app/"
 		},
 		output: {
-			path: path.join(__dirname, "public/js"),
-			publicPath: "public/js",
-			filename: "app.min.js",
+			path: path.join(__dirname, "dist/js"),
+			publicPath: "dist/js",
+			filename: "app.js",
 			chunkFilename: "[chunkhash].min.js"
 		},
 		plugins: [new webpack.optimize.UglifyJsPlugin({minimize: true})],
@@ -45,8 +45,8 @@ module.exports = {
 			app: "./app/"
 		},
 		output: {
-			path: path.join(__dirname, "public/js"),
-			publicPath: "public/js",
+			path: path.join(__dirname, "dev/js"),
+			publicPath: "dev/js",
 			filename: "app.js",
 			chunkFilename: "[chunkhash].js"
 		},
