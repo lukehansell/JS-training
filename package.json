@@ -37,6 +37,6 @@
     "fluxxor": "^1.7.2",
     "moment": "^2.10.6",
     "react": "^0.13.3",
-    "react-router": "^1.0.0-rc1",
+    "react-router": "^1.0.0-rc1"
   }
 }

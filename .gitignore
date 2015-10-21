@@ -2,3 +2,4 @@ node_modules
 **/.DStore
 dist
 dev
+*.log
