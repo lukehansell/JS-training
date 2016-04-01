@@ -1,5 +1,4 @@
 node_modules
 **/.DStore
-dist
-dev
 *.log
+public/js/app.js
