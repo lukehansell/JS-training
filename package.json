@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --port 8082",
+    "start": "npm run start:app & npm run start:worker -- -w",
+    "start:app": "webpack-dev-server --inline --hot --port 8082",
+    "start:worker": "webpack --config webpack.webworker.config.js",
     "test": "mocha test/**-test.js",
     "predeploy": "webpack",
     "deploy": "surge ./public"
