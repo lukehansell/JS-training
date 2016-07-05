@@ -1,29 +1,31 @@
-import { default as React, Component } from 'react'
-import { Navbar, Panel, Col, Input } from 'react-bootstrap'
+import React from 'react'
+import { Navbar, NavbarBrand, Grid } from 'react-bootstrap'
+import Lesson from './Lesson';
 
-export default class App extends Component {
+const lessons = [{
+	defaultCode: require('text!../../lessons/1/task.txt'),
+	tests: require('../../lessons/1/tests')
+}, {
+	defaultCode: require('text!../../lessons/2/task.txt'),
+	tests: require('../../lessons/2/tests')
+}, {
+	defaultCode: require('text!../../lessons/3/task.txt'),
+	tests: require('../../lessons/3/tests')
+}, {
+	defaultCode: require('text!../../lessons/4/task.txt'),
+	tests: require('../../lessons/4/tests')
+}, {
+	defaultCode: require('text!../../lessons/5/task.txt'),
+	tests: require('../../lessons/5/tests')
+}]
 
-	constructor() {
-		super(arguments)
-		this.state = {
-		}
-	}
-
-	render() {
-		return (
-			<div className="container" id="app">
-				<Navbar brand="example" fixedTop />
-				<Col xs={12} sm={4}>
-					three
-				</Col>
-				<Col xs={12} sm={6}>
-					<Panel header="column" >
-					</Panel>
-				</Col>
-				<Col xs={12} sm={2}>
-					layout
-				</Col>
-			</div>
-		)
-	}
-}
+export default ({ children }) =>  (
+	<Grid className="container" id="app">
+		<Navbar>
+			<NavbarBrand>Will You Teach Me To JS?</NavbarBrand>
+		</Navbar>
+		{lessons.map( (lesson, i ) => (
+			<Lesson key={i} id={i+1} tests={lesson.tests} defaultCode={lesson.defaultCode}/>
+		))}
+	</Grid>
+)

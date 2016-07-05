@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base public/ --inline --hot",
+    "start": "webpack-dev-server --inline --hot --port 8082",
     "test": "mocha test/**-test.js",
     "predeploy": "webpack",
     "deploy": "surge ./public"
@@ -25,11 +25,15 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "chai": "^3.5.0",
     "fluxxor": "^1.7.2",
     "moment": "^2.10.6",
+    "raw-loader": "^0.5.1",
     "react": "^0.14.8",
     "react-bootstrap": "^0.28.4",
+    "react-codemirror": "^0.2.6",
     "react-dom": "^0.14.8",
-    "react-router": "^2.0.1"
+    "react-router": "^2.0.1",
+    "text-loader": "0.0.1"
   }
 }

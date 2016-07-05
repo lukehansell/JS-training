@@ -16,9 +16,9 @@ module.exports = {
 		vendor: ['react', 'react-dom', 'react-bootstrap']
 	},
 	output: {
-		path: path.join(__dirname, "public/"),
-		publicPath: "/js/",
-		filename: "app.js"
+		path: path.join(__dirname, "public/js/"),
+		publicPath: "/public/js/",
+		filename: "[name].js"
 	},
 	plugins: plugins,
 	module: {
@@ -35,5 +35,8 @@ module.exports = {
 			// required for react jsx
 			{ test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"},
 		]
+	},
+	devServer: {
+		historyApiFallback: true
 	}
 };

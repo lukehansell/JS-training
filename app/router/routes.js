@@ -1,6 +1,7 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 import App from '../components/App'
+import Lesson from '../components/Lesson'
 
 module.exports = (
 	<Route path="/" component={App}>

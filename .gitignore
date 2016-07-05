@@ -2,3 +2,4 @@ node_modules
 **/.DStore
 *.log
 public/js/app.js
+public/js/worker.js
