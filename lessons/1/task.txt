@@ -1,3 +1,7 @@
+// # Variable Types
+// Lets start simple. Below are some variables, assign
+// them values to make the tests on the right pass.
+
 var a;
 var b;
 var c;

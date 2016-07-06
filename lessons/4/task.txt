@@ -1,0 +1,3 @@
+// Functions are important in functional programming.
+// They accept and return values.
+// Lets again start simple.

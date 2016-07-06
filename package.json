@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "npm run start:app & npm run start:worker -- -w",
-    "start:app": "webpack-dev-server --inline --hot --port 8082",
+    "start:app": "webpack-dev-server --inline --hot --port 8081",
     "start:worker": "webpack --config webpack.webworker.config.js",
     "test": "mocha test/**-test.js",
     "predeploy": "webpack && webpack --config webpack.webworker.config.js",
@@ -28,7 +28,9 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
+    "expose-loader": "^0.7.1",
     "fluxxor": "^1.7.2",
+    "markdown-loader": "^0.1.7",
     "moment": "^2.10.6",
     "raw-loader": "^0.5.1",
     "react": "^0.14.8",
@@ -36,6 +38,9 @@
     "react-codemirror": "^0.2.6",
     "react-dom": "^0.14.8",
     "react-router": "^2.0.1",
+    "require-all": "^2.0.0",
+    "sinon": "^2.0.0-pre",
+    "sinon-chai": "^2.8.0",
     "text-loader": "0.0.1"
   }
 }

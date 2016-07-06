@@ -1,0 +1,5 @@
+// Arrays are really just objects with numerical
+// keys and a few automatic properties, such as
+// length.
+// Create an array and write three people
+// objects in there.

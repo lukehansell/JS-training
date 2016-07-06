@@ -31,6 +31,8 @@ module.exports = {
 			{ test: /\.ttf$/,    loader: "file-loader?prefix=font/" },
 			{ test: /\.eot$/,    loader: "file-loader?prefix=font/" },
 			{ test: /\.svg$/,    loader: "file-loader?prefix=font/" },
+			{ test: /\.txt$/,    loader: "raw-loader"},
+			{ test: /\.md$/,     loader: "markdown"},
 
 			// required for react jsx
 			{ test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"},

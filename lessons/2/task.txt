@@ -1,0 +1,5 @@
+// In JS we'll mostly be working with objects so
+// it's best to understand them early on.
+// Here we'll create a simple object to represent
+// a person with their name.
+

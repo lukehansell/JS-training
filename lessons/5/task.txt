@@ -1,0 +1,5 @@
+// Functions can also accept arguments and
+// use these in their working. A function
+// which always returns the same value when
+// presented the same arguments and has no
+// side effects is known as a "pure function".

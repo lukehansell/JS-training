@@ -2,22 +2,17 @@ import React from 'react'
 import { Navbar, NavbarBrand, Grid } from 'react-bootstrap'
 import Lesson from './Lesson';
 
-const lessons = [{
-	defaultCode: require('text!../../lessons/1/task.txt'),
-	tests: require('../../lessons/1/tests')
-}, {
-	defaultCode: require('text!../../lessons/2/task.txt'),
-	tests: require('../../lessons/2/tests')
-}, {
-	defaultCode: require('text!../../lessons/3/task.txt'),
-	tests: require('../../lessons/3/tests')
-}, {
-	defaultCode: require('text!../../lessons/4/task.txt'),
-	tests: require('../../lessons/4/tests')
-}, {
-	defaultCode: require('text!../../lessons/5/task.txt'),
-	tests: require('../../lessons/5/tests')
-}]
+const requireContext = require.context('../../lessons', true, /[0-9]+\/.+\..+$/)
+const lessons = []
+requireContext.keys().forEach( file => {
+	const parts = file.split('/')
+	lessons[parts[1]] = Object.assign( {
+		task: '',
+		tests: []
+	}, lessons[parts[1]], {
+		[parts[2].split('.')[0]]: requireContext(file)
+	})
+})
 
 export default ({ children }) =>  (
 	<Grid className="container" id="app">
@@ -25,7 +20,7 @@ export default ({ children }) =>  (
 			<NavbarBrand>Will You Teach Me To JS?</NavbarBrand>
 		</Navbar>
 		{lessons.map( (lesson, i ) => (
-			<Lesson key={i} id={i+1} tests={lesson.tests} defaultCode={lesson.defaultCode}/>
+			<Lesson key={i} id={i+1} tests={lesson.tests} defaultCode={lesson.task}/>
 		))}
 	</Grid>
 )
