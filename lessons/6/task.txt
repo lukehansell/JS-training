@@ -1,0 +1,7 @@
+// Being able to compare values is important.
+// Write a function called `biggest` which returns
+// the largest number provided in the arguments.
+
+var biggest = function() {
+    
+}
