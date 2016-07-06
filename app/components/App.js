@@ -20,7 +20,7 @@ export default ({ children }) =>  (
 			<NavbarBrand>Will You Teach Me To JS?</NavbarBrand>
 		</Navbar>
 		{lessons.map( (lesson, i ) => (
-			<Lesson key={i} id={i+1} tests={lesson.tests} defaultCode={lesson.task}/>
+			<Lesson key={i} id={i} tests={lesson.tests} defaultCode={lesson.task}/>
 		))}
 	</Grid>
 )
