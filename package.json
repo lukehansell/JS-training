@@ -8,7 +8,7 @@
     "start:app": "webpack-dev-server --inline --hot --port 8081",
     "start:worker": "webpack --config webpack.webworker.config.js",
     "test": "mocha test/**-test.js",
-    "predeploy": "webpack && webpack --config webpack.webworker.config.js",
+    "predeploy": "NODE_ENV=production webpack && webpack --config webpack.webworker.config.js",
     "deploy": "surge"
   },
   "author": "Luke Hansell <lukehansell@gmail.com>",
