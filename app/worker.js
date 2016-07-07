@@ -6,15 +6,29 @@ var expect = chai.expect
 
 self.addEventListener('message', event => {
   try {
-    eval(event.data.code)
-    eval(event.data.test.test)
+
+    var log = []
+    var oldLog = console.log;
+    console.log = function(message) {
+      log.push(JSON.stringify(message));
+      oldLog.apply(console, arguments);
+    }
+
+    code = `
+      ${event.data.test.before || ''};
+      ${event.data.code};
+      ${event.data.test.test}
+    `
+
+    eval(code);
 
     self.postMessage({
       index: event.data.index,
       code: event.data.code,
       result: {
         passing: true
-      }
+      },
+      log: log
     })
   } catch (error) {
     self.postMessage({
@@ -23,7 +37,8 @@ self.addEventListener('message', event => {
       result: {
         error: error.message,
         passing: false
-      }
+      },
+      log: log
     })
   }
 }, false)

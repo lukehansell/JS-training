@@ -1,0 +1,2 @@
+// We have a function defined called sayHello().
+// Try calling this function with your name.

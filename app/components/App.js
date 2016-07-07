@@ -6,11 +6,16 @@ const requireContext = require.context('../../lessons', true, /[0-9]+\/.+\..+$/)
 const lessons = []
 requireContext.keys().forEach( file => {
 	const parts = file.split('/')
-	lessons[parts[1]] = Object.assign( {
+	const lessonNum = parts[1]
+	const fileName = parts[2].split('.')[0]
+
+	if (fileName === 'solution') return
+
+	lessons[lessonNum] = Object.assign( {
 		task: '',
 		tests: []
 	}, lessons[parts[1]], {
-		[parts[2].split('.')[0]]: requireContext(file)
+		[fileName]: requireContext(file)
 	})
 })
 

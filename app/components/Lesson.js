@@ -20,7 +20,8 @@ export default class Lesson extends Component {
     this.state = {
       error: null,
       code: props.defaultCode,
-      results
+      results,
+      log: []
     }
   }
 
@@ -43,7 +44,8 @@ export default class Lesson extends Component {
         }
 
         this.setState({
-          results: newTestState
+          results: newTestState,
+          log: e.data.log
         })
       }
     }
@@ -60,7 +62,10 @@ export default class Lesson extends Component {
 
   runTests(code) {
     this.setState({code})
-    this.setState({error: null})
+    this.setState({
+      error: null,
+      log: []
+    })
     const newTests = this.props.tests.map( (test, index) => {
       this.worker.postMessage({
         index,
@@ -95,6 +100,11 @@ export default class Lesson extends Component {
                   {this.state.results[i].error && <small>{this.state.results[i].error}</small>}
                 </li>
               ))}
+            </ul>
+            <hr/>
+            <h4>Console</h4>
+            <ul style={{ width: '100%', listStyle: 'none', margin: 0, padding: 0 }}>
+              {this.state.log.map( (log, i) => <li hey={i} style={{ width: '100%' }}><code style={{ width: '100%', display: 'block' }}>{log}</code></li> )}
             </ul>
           </Col>
         </Row>
