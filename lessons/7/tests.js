@@ -1,8 +1,14 @@
 module.exports = [{
-  name: 'square accepts a number and a callback and calls the callback with that number squared',
-  test: `
-    var cb = sinon.spy();
-    square(3, cb);
-    expect(cb).to.have.been.calledWith(9);
+  name: 'Call the sayName method on the person object',
+  test: `expect(person.sayName).to.have.been.called`,
+  before: `
+    var person = {
+      name: 'Geoff',
+      sayName() {
+        console.log('Hello my name is ' + this.name)
+      }
+    }
+
+    sinon.spy(person, 'sayName')
   `
 }]

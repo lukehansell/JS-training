@@ -1,2 +1,7 @@
-// We have a function defined called sayHello().
-// Try calling this function with your name.
+// Being able to compare values is important.
+// Write a function called `biggest` which returns
+// the largest number provided in the arguments.
+
+var biggest = function() {
+    
+}
